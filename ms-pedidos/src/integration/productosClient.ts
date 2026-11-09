@@ -18,7 +18,7 @@ export class productosClient {
         this.baseUrl = this.configService.get<string>(
             'URL_MS_PRODUCTOS',
             'http://localhost:3001',
-        );
+        ).replace(/\/$/, '');
         this.timeoutMs = Number(
             this.configService.get<number>('TIMEOUT_PRODUCTOS_MS', 5000),
         );

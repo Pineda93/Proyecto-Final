@@ -15,7 +15,7 @@ let productosClient = class productosClient {
     timeoutMs;
     constructor(configService) {
         this.configService = configService;
-        this.baseUrl = this.configService.get('URL_MS_PRODUCTOS', 'http://localhost:3001');
+        this.baseUrl = this.configService.get('URL_MS_PRODUCTOS', 'http://localhost:3001').replace(/\/$/, '');
         this.timeoutMs = Number(this.configService.get('TIMEOUT_PRODUCTOS_MS', 5000));
     }
     async consultarProducto(codigo) {

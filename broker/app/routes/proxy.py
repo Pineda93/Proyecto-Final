@@ -57,7 +57,7 @@ async def reenviar_a_productos(
 ):
     return await _reenviar(
         request=request,
-        base_url=f"{config.url_ms_productos}/productos",
+        base_url=f"{config.url_ms_productos.rstrip('/')}/productos",
         ruta=ruta,
         nombre_servicio="ms-productos",
         usuario=usuario,
@@ -73,7 +73,7 @@ async def reenviar_a_pedidos(
 ):
     return await _reenviar(
         request=request,
-        base_url=f"{config.url_ms_pedidos}/pedidos",
+        base_url=f"{config.url_ms_pedidos.rstrip('/')}/pedidos",
         ruta=ruta,
         nombre_servicio="ms-pedidos",
         usuario=usuario,
