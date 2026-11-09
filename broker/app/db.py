@@ -5,14 +5,17 @@ from app.config import config
 from app.passwords import crear_password
 
 def obtener_conexion():
-    return pymysql.connect(
-        host = config.db_host,
-        port = config.db_port,
-        user = config.db_usuario,
-        password = config.db_password,
-        database = config.db_name,
-        cursorclass = DictCursor  #las filas llegan como diccionarios
-    )
+    params = {
+        "host": config.db_host,
+        "port": config.db_port,
+        "user": config.db_usuario,
+        "password": config.db_password,
+        "database": config.db_name,
+        "cursorclass": DictCursor,
+    }
+    if config.db_ssl:
+        params["ssl"] = {"rejectUnauthorized": False}
+    return pymysql.connect(**params)
 
 def crear_tablas_y_usuarios_iniciales() -> None:
     conexion = obtener_conexion()

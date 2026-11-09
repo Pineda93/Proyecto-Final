@@ -21,6 +21,7 @@ import { PedidoController } from './controllers/PedidoController.js';
         username: configService.get<string>('DB_USERNAME', 'root'),
         password: configService.get<string>('DB_PASSWORD', ''),
         database: configService.get<string>('DB_NAME', 'ecommerce_pedidos'),
+        ssl: configService.get<string>('DB_SSL') === 'true' ? { rejectUnauthorized: false } : false,
         entities: [Pedido, DetallePedido],
         autoLoadEntities: true,
         synchronize: true,

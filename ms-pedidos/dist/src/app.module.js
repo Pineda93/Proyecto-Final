@@ -29,6 +29,7 @@ AppModule = __decorate([
                     username: configService.get('DB_USERNAME', 'root'),
                     password: configService.get('DB_PASSWORD', ''),
                     database: configService.get('DB_NAME', 'ecommerce_pedidos'),
+                    ssl: configService.get('DB_SSL') === 'true' ? { rejectUnauthorized: false } : false,
                     entities: [Pedido, DetallePedido],
                     autoLoadEntities: true,
                     synchronize: true,

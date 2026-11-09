@@ -11,6 +11,7 @@ class Config(BaseSettings):
     db_usuario: str = "root"
     db_password: str = ""
     db_name: str = "ecommerce_broker"
+    db_ssl: bool = False
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

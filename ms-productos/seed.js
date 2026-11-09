@@ -58,7 +58,7 @@ async function seed() {
   }
 
   const [filas] = await connection.execute('SELECT COUNT(*) as total FROM productos');
-  console.log(`✅ Catálogo sembrado con éxito. Total productos: ${filas[0].total}`);
+  console.log(`Catálogo sembrado con éxito. Total productos: ${filas[0].total}`);
 
   await connection.end();
 }

@@ -18,7 +18,7 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document);
 
   const puerto = process.env.PORT ?? 3001;
-  await app.listen(puerto);
+  await app.listen(puerto, '0.0.0.0');
   console.log(`Microservicio de productos escuchando en el puerto ${puerto}`);
   console.log(`Swagger disponible en: http://localhost:${puerto}/docs`);
 }
